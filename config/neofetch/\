@@ -1,0 +1,12 @@
+#!/bin/bash
+subreddit=${1-showerthoughts}
+echo $subreddit
+
+outputfile="$HOME/.cache/$subreddit"
+username="codeasashu"
+redditurl="https://www.reddit.com/r/$subreddit/top.json?sort=top&t=week&limit=100&obey_over18=true"
+if ! [ -f $outputfile ]; then
+  curl -o $outputfile -s --connect-timeout 5 -A "/u/$username" "$redditurl"
+fi
+#echo $(jq '.data.children[].data' $outputfile | shuf -n1)
+echo $(jq -r '.data.children[].data | .title +"---"+ .subreddit' $outputfile | shuf -n2)

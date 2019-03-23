@@ -1,0 +1,6 @@
+[user]
+	name = Ashutosh Chaudhary
+	email = 216.ashutosh@gmail.com
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /home/ashutosh/.gitignore

@@ -1,0 +1,4 @@
+config/mopidy/*
+aws
+ssh
+yay
