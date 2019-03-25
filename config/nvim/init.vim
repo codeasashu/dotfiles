@@ -209,12 +209,14 @@ Plug 'https://github.com/hashivim/vim-terraform.git'
 Plug 'vim-vdebug/vdebug'
 Plug 'mtth/scratch.vim'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'https://github.com/kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
-let g:vdebug_options = {'break_on_open': 0}
-let g:vdebug_options = {'server': '0.0.0.0'}
-let g:vdebug_options = {'port': '9000'}
-let g:vdebug_options = {'path_maps': {'/var/www/html': '/home/ashutosh/Documents/Projects/essaycrate/app'}}
+"let g:vdebug_options = {'break_on_open': 0}
+"let g:vdebug_options = {'server': '0.0.0.0'}
+"let g:vdebug_options = {'port': '9000'}
+"let g:vdebug_options = {'path_maps': {'/var/www/html': '/home/ashutosh/path/to/project'}}
 
 
 "----------------
@@ -503,6 +505,8 @@ let g:airline_symbols.paste = 'ρ'
 "let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " airline symbols
 let g:airline_left_sep = ''
