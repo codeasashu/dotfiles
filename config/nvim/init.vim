@@ -480,8 +480,8 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " enable the mouse
 set mouse=a
-exec 'nnoremap <C-h> :tabprevious<CR>'
-exec 'nnoremap <C-l> :tabnext<CR>'
+exec 'nnoremap <C-h> :tabp<CR>'
+exec 'nnoremap <C-l> :tabn<CR>'
 exec 'nnoremap <C-t> :tabnew<CR>:NERDTree<CR>'
 
 let g:airline_powerline_fonts = 1

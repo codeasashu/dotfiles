@@ -38,8 +38,8 @@ line-color = #f00
 border-size = 0
 border-color = #000
 
-padding-left = 10
-padding-right = 10
+padding-left = 0
+padding-right = 0
 
 module-margin-left = 2
 module-margin-right = 0
@@ -54,7 +54,7 @@ font-2 = Font Awesome 5 Free:style=Regular:pixelsize=12; 1
 font-3 = Font Awesome 5 Brands:pixelsize=12; 1
 font-4 = Font Awesome 5 Free:style=Solid:pixelsize=12; 1
 
-modules-left = bspwm i3 pulseaudio cmus mpd player-mpris-tail
+modules-left = bspwm i3 alsa cmus mpd player-mpris-tail
 modules-center = xwindow
 modules-right = skype gmail filesystem cpu temperature wlan date gap 
 
@@ -110,7 +110,7 @@ password =
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
 interval = 2
-format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next> <label-time> <label-song>
 label-song = %title%
 icon-play = 
 icon-pause = 
@@ -252,9 +252,18 @@ time-alt = %H:%M:%S
 label = %date% %time%
 
 format =  <label>
-[module/pulseaudio]
-type = internal/pulseaudio
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+[module/alsa]
+type = internal/alsa
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+mapped = true
+
+# sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
 #format-volume = <bar-volume>
 format-volume = <bar-volume> <label-volume>

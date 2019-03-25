@@ -7,6 +7,16 @@ command_exists() {
 	type "$1" > /dev/null 2>&1
 }
 
+install_cava() {
+    git clone https://github.com/karlstav/cava $HOME/cava
+    cd $HOME/cava
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+    cd $HOME/.dotfiles
+}
+
 confirm_user() {
     read -p "Are you sure? " -n 1 -r
     echo    # (optional) move to a new line
@@ -48,10 +58,10 @@ cleanup() {
 }
 
 DEV_PKG="git rsync neovim zsh zsh-completions termite fasd fzf ctags cmake docker docker-compose python2 python2-pip python-pip openssh httpie jq tig autojump"
-DISP_PKG="xorg-server xorg-xinit xorg-xprop xorg-xrandr xsel feh w3m"
+DISP_PKG="xorg-server xorg-xinit xorg-xprop xorg-xrandr xsel feh w3m scrot"
 EXTRA_PKG="ntp jsoncpp tldr wmctrl wget tree zip unzip rclone diff-so-fancy bat lolcat udiskie android-file-transfer android-udev"
 FONTS_PKG="noto-fonts ttf-hack"
-MUSIC_PKG="alsa-utils pavucontrol-qt pulseaudio ncmpcpp youtube-viewer mpv"
+MUSIC_PKG="alsa-utils pavucontrol-qt pulseaudio ncmpcpp youtube-viewer mpv fftw ncurses alsa-lib iniparser pulseaudio automake libtool"
 I3_PKG="i3-gaps compton neofetch dunst rofi ranger python-pywal"
 PACKAGES="$DISP_PKG $I3_PKG $DEV_PKG $EXTRA_PKG $MUSIC_PKG $FONTS_PKG"
 
@@ -76,7 +86,7 @@ if [ ! -f ~/.config/nvim/site/autoload/plug.vim ]; then
 fi;
 
 if ! command_exists polybar; then
-  yay -S polybar
+  yay -S polybar i3lock-fancy-git
 fi;
 
 if ! command_exists google-chrome-stable; then
@@ -117,6 +127,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 # configure diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global core.excludesfile $HOME/.gitignore
+
+# Install cava music player
+install_cava
 
 # clone the git repo for dotfiles
 cd $HOME/.dotfiles
