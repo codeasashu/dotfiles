@@ -47,7 +47,7 @@ cleanup() {
     rm -rf yay ranger_devicons
 }
 
-DEV_PKG="git rsync neovim zsh zsh-completions termite fasd fzf ctags cmake docker docker-compose python2 python2-pip python-pip openssh httpie jq tig autojump"
+DEV_PKG="git rsync neovim zsh zsh-completions termite fasd fzf ctags cmake docker docker-compose the_silver_searcher python2 python2-pip python-pip openssh httpie jq tig autojump"
 DISP_PKG="xorg-server xorg-xinit xorg-xprop xorg-xrandr xsel feh w3m scrot"
 EXTRA_PKG="ntp jsoncpp tldr wmctrl wget tree zip unzip rclone diff-so-fancy bat lolcat udiskie android-file-transfer android-udev"
 FONTS_PKG="noto-fonts ttf-hack"
