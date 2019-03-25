@@ -72,7 +72,7 @@ fi;
 
 #Configure neovim. Install vimplug
 if [ ! -f ~/.config/nvim/site/autoload/plug.vim ]; then
-	curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi;
 
 if ! command_exists polybar; then
