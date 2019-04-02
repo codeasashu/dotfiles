@@ -44,19 +44,19 @@ padding-right = 0
 module-margin-left = 2
 module-margin-right = 0
 
-#dpi=192
+dpi=150
 #font-0 = FontAwesome:size=10;0
 #font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-font-0 = Overpass Mono:pixelsize=12;2.25 
-font-1 = Font Awesome 5 Free:style=Solid:pixelsize=12; 1
-font-2 = Font Awesome 5 Free:style=Regular:pixelsize=12; 1
-font-3 = Font Awesome 5 Brands:pixelsize=12; 1
-font-4 = Font Awesome 5 Free:style=Solid:pixelsize=12; 1
+font-0 = Overpass Mono:pixelsize=14;2.25 
+font-1 = Font Awesome 5 Free:style=Solid:pixelsize=14; 1
+font-2 = Font Awesome 5 Free:style=Regular:pixelsize=14; 1
+font-3 = Font Awesome 5 Brands:pixelsize=14; 1
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=14; 1
 
 modules-left = bspwm i3 alsa cmus mpd player-mpris-tail
 modules-center = xwindow
-modules-right = skype gmail filesystem cpu temperature wlan date gap 
+modules-right = slack postman asbru gmail filesystem cpu temperature wlan date gap 
 
 tray-position = right
 tray-padding = 2
@@ -66,6 +66,21 @@ wm-restack = i3
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+
+[module/slack]
+type = custom/text
+content = ""
+click-left = slack &
+
+[module/asbru]
+type = custom/text
+content = " "
+click-left = asbru-cm &
+
+[module/postman]
+type = custom/text
+content = " "
+click-left = postman &
 
 [module/xkeyboard]
 type = internal/xkeyboard
