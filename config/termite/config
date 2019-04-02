@@ -18,7 +18,7 @@ mouse_autohide   = true
 # Base16 OceanicNext
 # Scheme: https://github.com/voronianski/oceanic-next-color-scheme
 
-foreground      = #C0C5CE
+foreground      = #00ff00
 foreground_bold = #C0C5CE
 cursor          = #C0C5CE
 background      = #1B2B34
