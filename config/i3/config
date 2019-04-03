@@ -32,7 +32,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 floating_minimum_size 500 x 500
-floating_maximum_size 1200 x 500
+floating_maximum_size 1900 x 1200
 
 # start a terminal
 bindsym $mod+Return exec termite
