@@ -167,6 +167,10 @@ alias sz="du -sh"
 alias enterdocker="docker exec -it $1"
 alias keymd5="ssh-keygen -l -E md5 -f $1"
 alias dc="docker-compose"
+function searchip() {
+    ag -B 1 -A2 --nonumbers -i "$1" ~/.ssh/config | awk NF | grep Host
+}
+
 #alias chgwal="wal -i $HOME/Wallpapers -o ${HOME}/wal-set"
 wal-tile() {
     wal -n -i "$@"
