@@ -3,7 +3,7 @@
 #font             = Source Code Pro for Powerline 11
  font             = Hack Nerd Font 13
 scrollback_lines = 10000
-clickable_url    = true
+clickable_url    = false
 browser          = google-chrome
 allow_bold       = true
 allow_italic     = true
