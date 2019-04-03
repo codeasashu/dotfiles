@@ -271,9 +271,9 @@ format =  <label>
 [module/alsa]
 type = internal/alsa
 
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
+master-soundcard = hw:1
+speaker-soundcard = hw:1
+headphone-soundcard = hw:1
 
 master-mixer = Master
 mapped = true
