@@ -201,7 +201,8 @@ alias sshgaanapapidev="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@dev.api.gaanap.c
 alias sshessaycratewp="ssh -i ~/.ssh/wpessaycrate.pem essayc9@199.250.194.143 -p 2222"
 alias getip="ip addr | grep -e 'wl*' | xargs | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\/24\b' | cut -d'/' -f1"
 alias composer='docker run -v $(pwd):/app composer'
-alias php='docker run -v $(pwd):/var/www/html localhost/php php'
+alias php='docker run --net=host -v $(pwd):/var/www/html localhost/php php'
+alias phpunit='docker run --net=host -v $(pwd):/var/www/html localhost/php phpunit'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
