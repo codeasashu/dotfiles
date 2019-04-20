@@ -18,10 +18,12 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   os_icon
+  virtualenv
   dir
   vcs
 )
 
+POWERLEVEL9K_PYTHON_ICON=🐍
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
@@ -200,8 +202,11 @@ alias sshgaanapapi="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@api.gaanap.com"
 alias sshgaanapapidev="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@dev.api.gaanap.com"
 alias sshessaycratewp="ssh -i ~/.ssh/wpessaycrate.pem essayc9@199.250.194.143 -p 2222"
 alias getip="ip addr | grep -e 'wl*' | xargs | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\/24\b' | cut -d'/' -f1"
-alias composer='docker run -v $(pwd):/app composer'
-alias php='docker run -v $(pwd):/var/www/html localhost/php php'
+alias composer='docker run -v $(pwd):/app -v $HOME/.ssh/id_rsa:/root/.ssh//id_rsa composer'
+alias php='docker run --net=host -v $(pwd):/var/www/html localhost/php php'
+alias php7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 php'
+alias phpunit='docker run --net=host -v $(pwd):/var/www/html localhost/php phpunit'
+alias phpunit7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 phpunit'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
