@@ -202,7 +202,7 @@ alias sshgaanapapi="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@api.gaanap.com"
 alias sshgaanapapidev="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@dev.api.gaanap.com"
 alias sshessaycratewp="ssh -i ~/.ssh/wpessaycrate.pem essayc9@199.250.194.143 -p 2222"
 alias getip="ip addr | grep -e 'wl*' | xargs | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\/24\b' | cut -d'/' -f1"
-alias composer='docker run -v $(pwd):/app -v $HOME/.ssh/id_rsa:/root/.ssh//id_rsa composer'
+alias composer='docker run -v $(pwd):/app -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa composer'
 alias php='docker run --net=host -v $(pwd):/var/www/html localhost/php php'
 alias php7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 php'
 alias phpunit='docker run --net=host -v $(pwd):/var/www/html localhost/php phpunit'
