@@ -54,7 +54,7 @@ font-2 = Font Awesome 5 Free:style=Regular:pixelsize=12; 1
 font-3 = Font Awesome 5 Brands:pixelsize=12; 1
 font-4 = Font Awesome 5 Free:style=Solid:pixelsize=12; 1
 
-modules-left = bspwm i3 alsa cmus mpd player-mpris-tail
+modules-left = bspwm i3 alsa cmus player-mpris-tail
 modules-center = xwindow
 modules-right = skype gmail filesystem cpu temperature wlan date gap 
 
@@ -97,42 +97,6 @@ format-unmounted = <label-unmounted>
 label-mounted = %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-inverse}
-
-[module/mpd]
-type = internal/mpd
-
-; Host where mpd is running (either ip or domain name)
-; Can also be the full path to a unix socket where mpd is running.
-host = 127.0.0.1
-port = 6600
-password =
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 2
-format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next> <label-time> <label-song>
-label-song = %title%
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-seekb = 
-icon-seekf = 
-icon-random =  
-icon-repeat = 
-icon-repeatone = 
-icon-single = 
-icon-consume = 
-
-toggle-on-foreground = #ff
-toggle-off-foreground = #55
-
-; Only applies if <bar-progress> is used
-bar-progress-width = 45
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
 
 [module/gmail]
 type = custom/script
