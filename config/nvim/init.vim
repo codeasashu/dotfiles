@@ -81,7 +81,7 @@ Plug 'SidOfc/mkdx', { 'for': 'markdown' } " lot of keystroke for markdown
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " Distraction-free
 Plug 'junegunn/limelight.vim', { 'for': 'markdown' } " Hyperfocus-writing
 
-Plug 'rhysd/vim-grammarous', { 'for': 'markdown' } " show grammar mistakes
+"Plug 'rhysd/vim-grammarous', { 'for': 'markdown' } " show grammar mistakes
 Plug 'reedes/vim-wordy' "veridy quality of writting (see :Wordy)
 Plug 'reedes/vim-lexical' " dictionnary, thesaurus...
 " Plug 'Ron89/thesaurus_query.vim' 
@@ -252,6 +252,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " close the buffer
 nmap <leader>db :Bdelete!<cr>
+nmap <F2> :%!python -m json.tool<cr>
 
 " Twig
 autocmd vimrc BufNewFile,BufRead *.twig set filetype=html.twig
@@ -516,6 +517,8 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
+
+let g:go_highlight_types = 1
 
 set clipboard+=unnamedplus
 " ncm debugging

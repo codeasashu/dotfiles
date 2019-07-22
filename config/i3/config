@@ -240,7 +240,8 @@ exec_always --no-startup-id wal -n -c -i "$HOME/Wallpapers"; feh --bg-fill "$(< 
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id xautolock -time 5 -locker /usr/bin/i3lock-fancy -detectsleep
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id tint2
 
 # Set inner/outer gaps
 gaps inner 10

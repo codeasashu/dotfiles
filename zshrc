@@ -186,9 +186,9 @@ source ~/.cache/wal/colors-tty.sh
 neofetch
 
 # If mikikube is there, change docker env
-if hash minikube 2>/dev/null; then
-    eval $(minikube docker-env)
-fi;
+#if hash minikube 2>/dev/null; then
+#    eval $(minikube docker-env)
+#fi;
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -202,11 +202,19 @@ alias sshgaanapapi="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@api.gaanap.com"
 alias sshgaanapapidev="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@dev.api.gaanap.com"
 alias sshessaycratewp="ssh -i ~/.ssh/wpessaycrate.pem essayc9@199.250.194.143 -p 2222"
 alias getip="ip addr | grep -e 'wl*' | xargs | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\/24\b' | cut -d'/' -f1"
-alias composer='docker run -v $(pwd):/app -v $HOME/.ssh/id_rsa:/root/.ssh/id_rsa composer'
-alias php='docker run --net=host -v $(pwd):/var/www/html localhost/php php'
+alias composer='docker run -v $(pwd):/var/www/html myop/php-cli:5.6 composer'
+alias php='docker run --net=host -v $(pwd):/var/www/html myop/php-cli:5.6 php'
 alias php7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 php'
-alias phpunit='docker run --net=host -v $(pwd):/var/www/html localhost/php phpunit'
+alias phpunit='docker run --net=host -v $(pwd):/var/www/html myop/php-cli:5.6 phpunit'
 alias phpunit7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 phpunit'
+
+# Log filtering aliases
+function apc_ipfilter() {
+    grep -Rw "$1" "$2" | cut -d':' -f1 | cut -d' ' -f1 | sort -u
+}
+function apc_ipurl() {
+    cat "$1" | awk -F '"' '{print $1 $2}' | awk -F' ' '{print $1" " $7}' | sort -u
+}
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
