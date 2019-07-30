@@ -19,6 +19,9 @@ call plug#begin('~/.config/nvim/plugged')
 " display the result when searching
 Plug 'henrik/vim-indexed-search'
 
+"Vim language autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " syntax highlighting for tmux.conf + other cool options
 Plug 'tmux-plugins/vim-tmux' | Plug 'tmux-plugins/vim-tmux-focus-events'
 
