@@ -162,7 +162,7 @@ alias YT="youtube-viewer"
 alias ethspeed="speedometer -r enp0s25"
 alias wifispeed="speedometer -r wlp3s0"
 alias starwars="telnet towel.blinkenlights.nl"
-alias gaana="youtube-viewer -A -n -4 $1 --results=1 --video-player=mpv"
+alias gaana="youtube-viewer -A -n -4 $1 --results=1 --video-player=mpv --die_immediate"
 alias joke="$HOME/.config/neofetch/surprise.sh 'jokes'"
 alias rr="rm -rf"
 alias sz="du -sh"
@@ -202,15 +202,15 @@ alias sshgaanapapi="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@api.gaanap.com"
 alias sshgaanapapidev="ssh -i ~/.ssh/gaanaptempvol.pem ec2-user@dev.api.gaanap.com"
 alias sshessaycratewp="ssh -i ~/.ssh/wpessaycrate.pem essayc9@199.250.194.143 -p 2222"
 alias getip="ip addr | grep -e 'wl*' | xargs | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\/24\b' | cut -d'/' -f1"
-alias composer='docker run -v $(pwd):/app -v $HOME/.ssh/id_rsa:/root/.ssh//id_rsa composer'
+alias composer='docker run -it -v $(pwd):/var/www/html myop/php-cli:5.6 composer'
 #alias php='docker run --net=host -v $(pwd):/var/www/html localhost/php php'
 alias php='docker run -it --net=host -v $(pwd):/var/www/html localhost/php7'
-alias phpunit='docker run --net=host -v $(pwd):/var/www/html localhost/php phpunit'
+alias phpunit='docker run --net=host -v $(pwd):/var/www/html myop/php-cli:5.6 phpunit'
 alias phpunit7='docker run --net=host -v $(pwd):/var/www/html localhost/php7 phpunit'
 
 function swagger() {
     local filen=`basename $1`
-    docker run --rm --name=swagger -d -p 80:8080 -e SWAGGER_JSON=/app/$filen -v $(pwd)/$filen:/app/$filen swaggerapi/swagger-ui
+    docker run --rm --name=swagger -d -p 8080:8080 -e SWAGGER_JSON=/app/$filen -v $(pwd)/$filen:/app/$filen swaggerapi/swagger-ui
 }
 
 autoload -U +X bashcompinit && bashcompinit
