@@ -41,13 +41,19 @@ install_ranger_devicons(){
     cd $HOME/.dotfiles
 }
 
+## Install tmux
+install_tmux() {
+    sudo ln -s -f $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+    sudo ln -s -f $HOME/.tmux/.tmux.conf.local $HOME/.tmux.conf.local
+}
+
 cleanup() {
     #cd into dotfiles if we aren't already
     cd $HOME/.dotfiles
     rm -rf yay ranger_devicons
 }
 
-DEV_PKG="git curl rsync neovim zsh zsh-completions termite fasd fzf ctags cmake docker docker-compose the_silver_searcher openssh httpie jq tig vim"
+DEV_PKG="git curl rsync neovim zsh zsh-completions termite tmux fasd fzf ctags cmake docker docker-compose the_silver_searcher openssh httpie jq tig vim"
 DISP_PKG="feh scrot python-pywal neofetch"
 EXTRA_PKG="ntp jsoncpp tldr wmctrl wget tree zip unzip rclone diff-so-fancy bat lolcat udiskie android-file-transfer android-udev xsel"
 FONTS_PKG="noto-fonts ttf-hack"
@@ -55,7 +61,7 @@ MUSIC_PKG="alsa-utils pavucontrol-qt pulseaudio ncmpcpp youtube-viewer mpv"
 PACKAGES="$DEV_PKG $DISP_PKG $EXTRA_PKG $MUSIC_PKG $FONTS_PKG"
 
 # Install a base packages first
-sudo pacman -Sy $PACKAGES
+sudo pacman -S $PACKAGES
 
 # Install yay
 if ! command_exists yay; then
@@ -68,6 +74,9 @@ fi;
 if ! command_exists rcup; then
 yay -S rcm
 fi;
+
+# Install tmux
+install_tmux
 
 #Configure neovim. Install vimplug
 if [ ! -f ~/.config/nvim/site/autoload/plug.vim ]; then
