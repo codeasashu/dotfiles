@@ -94,7 +94,7 @@ fi;
 
 if ! command_exists fzf; then
     git clone https://github.com/junegunn/fzf.git $HOME/.fzf
-    exec $HOME/.fzf/intall
+    exec $HOME/.fzf/install
 fi;
 
 # Install mopidy-git (support for python 3x)
