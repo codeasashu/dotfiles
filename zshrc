@@ -15,7 +15,7 @@ export LANG=en_US.UTF-8
 
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   os_icon
   virtualenv
@@ -94,7 +94,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source /usr/bin/aws_zsh_completer.sh
-source /usr/share/autojump/autojump.zsh
+[[ -s /home/ashutosh/.autojump/etc/profile.d/autojump.sh ]] && source /home/ashutosh/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
 
 # User configuration
 
